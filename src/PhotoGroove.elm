@@ -1,6 +1,6 @@
 module PhotoGroove exposing (main)
 
-import Html exposing (div, h1, img, text)
+import Html exposing (..)
 import Html.Attributes exposing (..)
 
 
