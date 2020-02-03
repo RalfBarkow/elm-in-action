@@ -12,7 +12,10 @@ view model =
     div [ class "content" ]
         [ h1 [] [ text "Photo Groove" ]
         , div [ id "thumbnails" ]
-            (List.map (\photo -> viewThumbnail model.selectedUrl photo)
+            (List.map
+                (viewThumbnail
+                    model.selectedUrl
+                )
                 model.photos
             )
         , img
