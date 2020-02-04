@@ -4529,6 +4529,23 @@ var $elm$html$Html$Attributes$classList = function (classes) {
 				$elm$core$Tuple$first,
 				A2($elm$core$List$filter, $elm$core$Tuple$second, classes))));
 };
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
 var $author$project$PhotoGroove$viewThumbnail = F2(
 	function (selectedUrl, thumb) {
 		return A2(
@@ -4543,7 +4560,9 @@ var $author$project$PhotoGroove$viewThumbnail = F2(
 							_Utils_Tuple2(
 							'selected',
 							_Utils_eq(selectedUrl, thumb.url))
-						]))
+						])),
+					$elm$html$Html$Events$onClick(
+					{data: thumb.url, description: 'ClickedPhoto'})
 				]),
 			_List_Nil);
 	});
