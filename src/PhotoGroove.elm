@@ -51,4 +51,8 @@ update msg model =
 
 
 main =
-    view initialModel
+    Browser.sandbox
+        { init = initialModel
+        , view = view
+        , update = update
+        }
